@@ -12,9 +12,9 @@ const initWebRoutes = (app) => {
   router.get("/crud", homeController.getCRUD);
   router.post("/post-crud", homeController.postCRUD);
   router.get("/get-crud", homeController.getFindAllCrud);
-  router.get("/edit-crud/:id", homeController.getEditCRUD);
+  router.get("/edit-crud", homeController.getEditCRUD);
   router.post("/put-crud", homeController.putCRUD);
-  router.get("/delete-crud/:id", homeController.deleteCRUD);
+  router.get("/delete-crud", homeController.deleteCRUD);
   return app.use("/", router);
 };
 

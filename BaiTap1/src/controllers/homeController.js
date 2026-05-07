@@ -42,16 +42,14 @@ let getFindAllCrud = async (req, res) => {
 let postCRUD = async (req, res) => {
   //dùng async để xử lý bất đồng bộ
   let message = await CRUDService.createNewUser(req.body); //gọi service
-
-  console.log(req.body); //lấy thông tin body của http request
+  //console.log(req.body); //lấy thông tin body của http request
   console.log(message);
   return res.send("Post crud to server");
 };
 
 //hàm lấy dữ liệu để edit
 let getEditCRUD = async (req, res) => {
-  console.log("req.prams::", req.params.id);
-  let userId = req.params.id;
+  let userId = req.query.id;
   if (userId) {
     //check Id
     let userData = await CRUDService.getUserInfoById(userId);
@@ -80,7 +78,7 @@ let putCRUD = async (req, res) => {
 };
 
 let deleteCRUD = async (req, res) => {
-  let id = req.params.id; //vì trên view ?id=1
+  let id = req.query.id; //vì trên view ?id=1
   if (id) {
     await CRUDService.deleteUserById(id);
     return res.send("Deleted!!!!!!!!!!!!");
