@@ -7,8 +7,8 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); //express.json()
+app.use(bodyParser.urlencoded({ extended: true })); //express.urlencoded({ extended : true})
 
 viewEngine(app);
 initWebRoutes(app);
